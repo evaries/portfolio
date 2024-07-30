@@ -1,0 +1,27 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/montserrat";
+const { title = "Welcome!" } = Astro.props;
+import "../globals.css"
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+		<title>{title}</title>
+	</head>
+  <body class="w-max-lg bg-zinc-950 text-zinc-200 flex flex-col items-center justify-center ">
+		<section class="max-w-[1300px] flex flex-col px-4 md:px-10">
+		<slot />
+		</section>
+	</body>
+</html>
+
+<style>
+body {
+  font-family: 'Montserrat Variable', sans-serif;
+}
+</style>

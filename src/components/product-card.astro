@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+
+const { img, name = '', category = '', price = '', link = '' } = Astro.props;
+---
+
+<div
+  class="borderRadius-md mt-4 flex h-fit flex-col overflow-hidden rounded-lg border border-zinc-800"
+>
+  <a href={link} class="cursor-pointer">
+    <div class="flex w-full max-w-sm flex-col overflow-hidden">
+      <div class="flex h-fit">
+        <Image
+          src={img}
+          alt="Letters Hero"
+          class="transform rounded-lg transition-transform duration-500 ease-in-out hover:scale-105"
+        />
+      </div>
+    </div>
+  </a>
+  <div
+    class="flex h-auto flex-row justify-between border-t border-t-zinc-800 p-4"
+  >
+    <div class="flex flex-col items-start">
+      <span class="text-zinc-100">{name}</span>
+      <span class="text-sm font-light text-zinc-400">{category}</span>
+    </div>
+    <div class="flex flex-col justify-center gap-2">
+      <span class="text-zinc-100">{price}</span>
+    </div>
+  </div>
+</div>

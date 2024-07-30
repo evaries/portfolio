@@ -1,0 +1,193 @@
+---
+import ProductLayout from '@/layouts/product.astro';
+import Sun from '@/components/icons/sun.astro';
+import Moon from '@/components/icons/moon.astro';
+import Desktop from '@/components/icons/desktop.astro';
+import { Image } from 'astro:assets';
+import { Carousel } from '@/components/carousel.tsx';
+import { Tooltip } from '@/components/tooltip.tsx';
+import { Accordion } from '@/components/accordion.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import Hero from '@/assets/img/letters-hero.jpg';
+import HeroLight from '@/assets/img/letters-hero-light.jpg';
+import Letter from '@/assets/img/letters-letter.jpg';
+import About from '@/assets/img/letters-about.jpg';
+
+const letters = [
+  {
+    id: 'hero',
+    src: Hero,
+  },
+  {
+    id: 'hero-light',
+    src: HeroLight,
+  },
+  {
+    id: 'letter',
+    src: Letter,
+  },
+  {
+    id: 'about',
+    src: About,
+  },
+];
+
+---
+
+<ProductLayout>
+  <section
+    class="mt-28 flex w-full flex-col-reverse items-center justify-between gap-8 text-center md:flex-row"
+  >
+    <div
+      class="h-full max-h-[475px] w-full max-w-[700px] basis-[60%] overflow-hidden rounded-lg border border-neutral-800"
+    >
+      <Carousel client:load images={letters} />
+    </div>
+    <div
+      class="flex h-[475px] w-full basis-[40%] flex-col items-start justify-between text-start"
+    >
+      <div class="flex w-full flex-col">
+        <h2 class="w-full text-5xl font-bold">Solo letters</h2>
+        <span class="mt-4 w-full text-xl text-neutral-300"
+          >Newsletter template for creators</span
+        >
+        <p
+          class="mt-4 text-start text-sm font-light tracking-wide text-neutral-400"
+        >
+          Sololetters is a template for creators, entrepreneurs, coaches and
+          many others who want to collect emails for their newsletter. It’s
+          powered by Content Management System (CMS) which allows easily add,
+          edit and delete previous letters to site and give extended information
+          what people get, when subscribed. Each article has own page with
+          unique SEO info, which is good for web engines and organic search.
+          Template is adapted for both dark and light appearance.
+        </p>
+        <div class="mt-4 flex flex-row gap-8">
+          <p class="text-lg font-semibold">$19</p>
+          <div class="flex flex-row items-center gap-2">
+            <Tooltip client:idle text="Light mode">
+              <Sun />
+            </Tooltip>
+            <Tooltip client:idle text="Dark mode">
+              <Moon />
+            </Tooltip>
+            <Tooltip client:idle text="Responsive">
+              <Desktop />
+            </Tooltip>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full flex-col">
+        <div class="mt-4 flex w-full flex-col gap-4">
+          <a href="https://solo-letters.framer.website/">
+            <Button className="w-full border border-neutral-800"
+              >See live demo</Button
+            >
+          </a>
+          <a
+            href="https://yoo-jeen.lemonsqueezy.com/buy/4ff08ba3-a6ef-4304-baf5-f5b499038a4c"
+          >
+            <Button variant="secondary" className="w-full">Buy template</Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mt-32 flex flex-col items-center justify-center md:mt-60">
+    <h2 class="text-3xl font-semibold">Key features</h2>
+    <div
+      class="mt-8 flex w-full flex-col items-center justify-center gap-8 rounded-2xl border border-neutral-800 bg-neutral-900 p-8 text-center md:flex-row md:p-14"
+    >
+      <div
+        class="flex h-fit w-full basis-2/3 flex-col text-start text-sm font-light tracking-wide text-neutral-400"
+      >
+        <h3 class="text-2xl font-semibold text-neutral-200">
+          Collect your emails easily
+        </h3>
+        <p class="mt-4">
+          It's perfect for creators that want to collect emails and share their
+          previous newsletters in private customisable environment and easily
+          manage content. Thanks to the embedded CMS, editing is simple and
+          fast.
+        </p>
+        <span class="mt-4 text-lg font-normal text-neutral-200"
+          >What inside?</span
+        >
+        <ul class="mt-2 list-disc space-y-2">
+          <li>
+            <span class="font-normal text-neutral-300">Main page.</span> Here, along
+            side with an eye catching title and description, located main call to
+            action — form for collecting emails. Below is located blog posts with
+            previous letters and search bar for searching across CMS collection.
+          </li>
+          <li>
+            <span class="font-normal text-neutral-300">Blog post page.</span> Each
+            post is opening in separate page. While user scrolling, there are arrow
+            button appears with nice and smooth scroll to top effect. In the end
+            of the page another form for subscription.
+          </li>
+          <li>
+            <span class="font-normal text-neutral-300">About page.</span> Main information
+            about author and his/her work, what to expect and contact panel.
+          </li>
+          <li>
+            <span class="font-normal text-neutral-300">Success pages.</span> About
+            successful subscription user will be informed by redirecting to success
+            page with farther instructions.
+          </li>
+          <li><span class="font-normal text-neutral-300">404 page.</span></li>
+        </ul>
+      </div>
+      <div class="flex h-full w-full basis-1/3">
+        <div
+          class="grid h-full w-full grid-cols-2 grid-rows-3 gap-x-5 gap-y-5 sm:gap-y-20"
+        >
+          <div class="flex flex-col items-center justify-center">
+            <span class="font-medium">CMS</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Blog posts with letters</span
+            >
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <span class="font-medium">Dark/Ligth</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Implemented in two themes</span
+            >
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <span class="font-medium">Responsive</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Adapted for all devices</span
+            >
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <span class="font-medium">Site search</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Navigation through content</span
+            >
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <span class="font-medium">Form</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Configurable form</span
+            >
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <span class="font-medium">SEO</span>
+            <span class="text-xs font-thin text-neutral-300"
+              >Search engine optimized</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="my-28 flex w-full flex-row items-center justify-center gap-8 text-center"
+  >
+    <div class="flex w-full max-w-[800px] flex-col">
+      <h3>FAQ</h3>
+      <Accordion client:idle />
+    </div>
+  </section>
+</ProductLayout>

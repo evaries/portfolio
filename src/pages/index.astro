@@ -1,16 +1,70 @@
 ---
-
+import Layout from '../layouts/index.astro';
+import { Image } from 'astro:assets';
+import LettersHero from '../assets/img/letters-hero.jpg';
+import FramerHero from '../assets/img/framer-hero.jpg';
+import Avatar from '../assets/img/avatar.jpg';
+import Twitter from '../components/icons/twitter.astro';
+import Git from '../components/icons/git.astro';
+import Job from '../components/icons/job.astro';
+import Popover from '../components/popover.astro';
+import { Tooltip } from '../components/tooltip.tsx';
+import ProductCard from '../components/product-card.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <div
+    class="flex h-full flex-col items-center justify-center gap-8 pt-28 text-center"
+  >
+    <div class="flex h-full flex-col items-center justify-center text-center">
+      <Image src={Avatar} class="h-20 w-20 rounded-full" alt="Avatar" />
+      <h1 class="mt-4 text-lg font-semibold text-neutral-50">
+        Yev<h1>
+          <h2 class="text-sm text-neutral-400">Designer & Developer</h2>
+          <div class="mt-2 flex gap-5">
+            <Tooltip client:idle text="My thoughts">
+              <a href="https://x.com/yev_henii">
+                <Twitter />
+              </a>
+            </Tooltip>
+            <Tooltip client:idle text="My code">
+              <a href="https://github.com/evaries">
+                <Git />
+              </a>
+            </Tooltip>
+            <Tooltip client:idle text="My resume">
+              <a
+                href="https://www.dropbox.com/scl/fi/1l1d5pu1og5p2gqem9crc/FE_Nadtochii_Y_Resume.pdf?rlkey=h60evbbjjoa0xkaey77gzjcpr&st=927hgu33&dl=0"
+              >
+                <Job />
+              </a>
+            </Tooltip>
+          </div>
+          <p class="mt-4 max-w-sm text-sm text-neutral-300">
+            Blending minimalism and functionality to solving complex problems
+            and creating masterpieces
+          </p>
+        </h1>
+        <div class="mt-8 flex flex-col">
+          <span>Recent Framer templates</span>
+          <div class="flex flex-col gap-8 md:flex-row">
+            <ProductCard
+              img={LettersHero}
+              name="Solo Letters"
+              category="Newsletters"
+              link="/products/solo-letters"
+              price="$19"
+            />
+            <ProductCard
+              img={FramerHero}
+              name="SaaS Landing "
+              category="SaaS, Landing"
+              link="/products/saas-landing"
+              price="$9"
+            />
+          </div>
+        </div>
+      </h1>
+    </div>
+  </div>
+</Layout>

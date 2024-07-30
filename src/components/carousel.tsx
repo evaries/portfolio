@@ -6,8 +6,23 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-export const Carousel = (props) => {
-  const { images } = props;
+export type ImageMetadata = {
+  src: string;
+  format: string;
+  height: number;
+  width: number;
+};
+
+export type Images = {
+  id: string;
+  src: ImageMetadata;
+};
+
+export type CarouselProps = {
+  images: Images[];
+};
+
+export const Carousel: React.FC<CarouselProps> = ({ images }) => {
   return (
     <UICarousel>
       <CarouselContent>
@@ -20,18 +35,6 @@ export const Carousel = (props) => {
               );
             })
           : null}
-        {/* <CarouselItem> */}
-        {/*   <img src={Hero.src} /> */}
-        {/* </CarouselItem> */}
-        {/* <CarouselItem> */}
-        {/*   <img src={HeroLight.src} /> */}
-        {/* </CarouselItem> */}
-        {/* <CarouselItem> */}
-        {/*   <img src={Letter.src} /> */}
-        {/* </CarouselItem> */}
-        {/* <CarouselItem> */}
-        {/*   <img src={About.src} /> */}
-        {/* </CarouselItem> */}
       </CarouselContent>
       <CarouselPrevious variant="ghost" />
       <CarouselNext variant="ghost" />

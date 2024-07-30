@@ -11,7 +11,20 @@ export type AccordionDataType = {
 };
 
 export type AccordionProps = {
-  data: AccordionDataType[];
+  data?: AccordionDataType[];
+};
+
+export const Accordion: React.FC<AccordionProps> = ({ data = faq }) => {
+  return data.map((item, index) => (
+    <UIAccordion key={index} type="single" collapsible className="w-full">
+      <AccordionItem value={`item-${index + 1}`} className="border-neutral-700">
+        <AccordionTrigger>{item.title}</AccordionTrigger>
+        <AccordionContent className="text-start">
+          {item.description}
+        </AccordionContent>
+      </AccordionItem>
+    </UIAccordion>
+  ));
 };
 
 const faq = [
@@ -32,16 +45,3 @@ const faq = [
       'Yes. All colours used as a variables and can be easily changed for you style.',
   },
 ];
-
-export const Accordion: React.FC<AccordionProps> = ({ data = faq }) => {
-  return data.map((item, index) => (
-    <UIAccordion key={index} type="single" collapsible className="w-full">
-      <AccordionItem value={`item-${index + 1}`} className="border-neutral-700">
-        <AccordionTrigger>{item.title}</AccordionTrigger>
-        <AccordionContent className="text-start">
-          {item.description}
-        </AccordionContent>
-      </AccordionItem>
-    </UIAccordion>
-  ));
-};
